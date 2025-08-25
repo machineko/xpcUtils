@@ -13,6 +13,9 @@ public extension IOSurfaceRef {
     }
 }
 
+public enum whisperVersion : Sendable, Codable {
+    case turbo, v3
+}
 
 public enum whisperEndpoints: String {
     case initWhisper
@@ -175,14 +178,16 @@ public struct modelSettings: Sendable, Codable {
     public let cachePath: String
     public let useCache: Bool
     public let modelVersion: modelVersion
+    public let whisperVersion: whisperVersion
     
-    public init(encoderDevice: MPSGraphComputeDevice, decoderDevice: MPSGraphComputeDevice, basePath: String, cachePath: String, useCache: Bool, modelVersion: modelVersion) {
+    public init(encoderDevice: MPSGraphComputeDevice, decoderDevice: MPSGraphComputeDevice, basePath: String, cachePath: String, useCache: Bool, modelVersion: modelVersion, whisperVersion: whisperVersion) {
         self.encoderDevice = encoderDevice
         self.decoderDevice = decoderDevice
         self.basePath = basePath
         self.useCache = useCache
         self.modelVersion = modelVersion
         self.cachePath = cachePath
+        self.whisperVersion = whisperVersion
     }
 }
 
