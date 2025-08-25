@@ -297,7 +297,7 @@ public struct GenerateCodableClientMacro: PeerMacro {
         )
 
         // Create method signature with async throws (handling deprecation)
-        var effectSpecifiers = method.signature.effectSpecifiers ?? FunctionEffectSpecifiersSyntax()
+        let effectSpecifiers = method.signature.effectSpecifiers ?? FunctionEffectSpecifiersSyntax()
 
 //        if effectSpecifiers.asyncSpecifier == nil {
 //            effectSpecifiers = effectSpecifiers.with(\.asyncSpecifier, .keyword(.async))
@@ -547,13 +547,15 @@ public struct GenerateCodableServerMacro: PeerMacro {
                 DeclModifierSyntax(name: .keyword(.open))
             ]),
             name: .identifier(name),
-            inheritanceClause: InheritanceClauseSyntax(
-                inheritedTypes: InheritedTypeListSyntax([
-                    InheritedTypeSyntax(
-                        type: IdentifierTypeSyntax(name: .identifier("@unchecked Sendable"))
-                    )
-                ])
-            ),
+//            inheritanceClause: InheritanceClauseSyntax(
+//                inheritedTypes: InheritedTypeListSyntax([
+//                    InheritedTypeSyntax(
+//                        type: IdentifierTypeSyntax(name: .identifier("@unchecked Sendable"))
+////                        type: IdentifierTypeSyntax(name: .identifier("Sendable"))
+//
+//                    )
+//                ])
+//            ),
             memberBlock: MemberBlockSyntax(
                 members: MemberBlockItemListSyntax(members)
             )

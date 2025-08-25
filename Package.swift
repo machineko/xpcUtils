@@ -19,7 +19,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "git@github.com:machineko/SwiftyXPC", from: "0.6.0"),
-        .package(url: "git@github.com:swiftlang/swift-syntax", exact: "601.0.1"),
+        .package(url: "https://github.com/swiftlang/swift-syntax", from: "601.0.1"),
     ],
     targets: [
         .macro(

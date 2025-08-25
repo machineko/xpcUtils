@@ -164,6 +164,8 @@ public enum MPSGraphComputeDevice: UInt64, Sendable, Codable {
 public enum modelVersion: UInt8, Sendable, Codable {
     case fp16 = 0
     case i8 = 1
+    case v3fp16 = 2
+    case v3i8 = 3
 }
 
 public struct modelSettings: Sendable, Codable {
